@@ -30,14 +30,18 @@ Myapp.angular.controller('general', function ($scope, $http) {
     $scope.ScanWifi = function()
     {
         WifiWizard.startScan(function(){
+            alert("start scan");
             $scope.title = "Escaneando";
         }, function(){
             $scope.title = "Fallo en el escaneo";
         });
 
         WifiWizard.getScanResults({numLevels: 0},
+
             function(networks){
+                alert("GEtResults");
                 networks.forEach(function(item){
+                    alert(item.SSID);
                     wifis.push({ssid: item.SSID , pass: 'hola'});
                 });
                 $scope.$apply();
