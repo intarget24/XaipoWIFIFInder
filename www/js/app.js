@@ -29,6 +29,7 @@ Myapp.angular.controller('general', function ($scope, $http) {
 
     $scope.ScanWifi = function()
     {
+        alert("Scan");
         WifiWizard.startScan(function(){
             alert("start scan");
             $scope.title = "Escaneando";
